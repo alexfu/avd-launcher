@@ -11,6 +11,9 @@ class AvdLauncher extends Command {
   }
 
   async run() {
+    // Handle built-in flags
+    this.parse(AvdLauncher)
+
     const avdManager = new AVDManager()
     const availableAvds = await avdManager.getAll()
     const answer = await inquirer.prompt([this.selectDevicesQuestion(availableAvds)])
