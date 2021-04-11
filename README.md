@@ -21,3 +21,9 @@ Install via npm:
 ```
 $ npm install --global avd-launcher
 ```
+
+Then run `avd` from your terminal.
+
+## Notes
+
+Currently, this tool assumes that you have an `ANDROID_HOME` environment variable set in your shell that points to a valid Android sdk directory.
