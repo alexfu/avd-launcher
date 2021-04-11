@@ -11,3 +11,13 @@ $ emulator -avd avd_name
 ```
 
 This CLI tool does nothing more than wrap the above command and provides an easier way to interface.
+
+![demo](demo.gif)
+
+## Install
+
+Install via npm:
+
+```
+$ npm install --global avd-launcher
+```
