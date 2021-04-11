@@ -11,12 +11,14 @@
     "@oclif/command": "^1.8.0",
     "@oclif/config": "^1.17.0",
     "@oclif/plugin-help": "^3.2.2",
+    "inquirer": "^8.0.0",
     "tslib": "^1.14.1"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.26.0",
     "@oclif/test": "^1.2.8",
     "@types/chai": "^4.2.14",
+    "@types/inquirer": "^7.3.1",
     "@types/mocha": "^5.2.7",
     "@types/node": "^10.17.56",
     "chai": "^4.3.4",
