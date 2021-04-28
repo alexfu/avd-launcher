@@ -1,4 +1,5 @@
 import * as child_process from 'child_process'
+import AVDLaunchOptions from './avdlaunchoptions'
 
 function emulatorCmd(args?: string): string {
   if (args) {
@@ -8,7 +9,21 @@ function emulatorCmd(args?: string): string {
   return `${process.env.ANDROID_HOME}/emulator/emulator`
 }
 
-class AVDManager {
+function serializeLaunchOptions(options?: AVDLaunchOptions): string[] {
+  const serializedOptions: string[] = []
+
+  if (options?.noSnapshotLoad) {
+    serializedOptions.push('-no-snapshot-load')
+  }
+
+  return serializedOptions
+}
+
+function parseListAVDs(stdout: string): string[] {
+  return stdout.trim().split('\n')
+}
+
+export default class AVDManager {
   async getAll(): Promise<string[]> {
     return new Promise((resolve, reject) => {
       child_process.exec(emulatorCmd('-list-avds'), (error, stdout, stderr) => {
@@ -22,20 +37,15 @@ class AVDManager {
           return
         }
 
-        resolve(this.parseListAVDs(stdout))
+        resolve(parseListAVDs(stdout))
       })
     })
   }
 
-  launch(name: string) {
+  launch(name: string, options?: AVDLaunchOptions) {
+    const args = ['-avd', name].concat(serializeLaunchOptions(options))
     child_process
-      .spawn(emulatorCmd(), ['-avd', name], {detached: true, stdio: 'ignore'})
+      .spawn(emulatorCmd(), args, {detached: true, stdio: 'ignore'})
       .unref()
   }
-
-  private parseListAVDs(stdout: string): string[] {
-    return stdout.trim().split('\n')
-  }
 }
-
-export default AVDManager
