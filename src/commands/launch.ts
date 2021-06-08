@@ -52,10 +52,10 @@ export default class Launch extends Command {
       avdsToLaunch = await getUserSelectedAVDs(availableAvds)
     }
 
-    avdsToLaunch.forEach(avd => {
-      process.stdout.write(`Launching ${avd}...`)
-      avdManager.launch(avd, createLaunchOptions(flags))
-      process.stdout.write('done.\n')
+    avdsToLaunch.forEach(async avd => {
+      console.log(`Launching ${avd}...`)
+      await avdManager.launch(avd, createLaunchOptions(flags))
+      console.log('done.')
     })
   }
 }
