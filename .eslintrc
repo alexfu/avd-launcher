@@ -4,6 +4,7 @@
     "oclif-typescript"
   ],
   "rules": {
-    "indent": ["error", 2, {"MemberExpression": 1}]
+    "indent": ["error", 2, {"MemberExpression": 1}],
+    "no-console": "off"
   }
 }
