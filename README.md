@@ -22,7 +22,7 @@ Install via npm:
 $ npm install --global avd-launcher
 ```
 
-Then run `avd` from your terminal.
+Then run `avd launch` from your terminal.
 
 ## Notes
 
