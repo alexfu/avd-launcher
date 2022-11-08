@@ -9,7 +9,7 @@
   "bugs": "https://github.com/alexfu/avd-launcher/issues",
   "dependencies": {
     "@oclif/command": "^1.8.0",
-    "@oclif/plugin-help": "^3.2.2",
+    "@oclif/plugin-help": "^5.1.18",
     "inquirer": "^8.0.0"
   },
   "devDependencies": {
